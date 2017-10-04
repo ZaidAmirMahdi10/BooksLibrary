@@ -1,0 +1,57 @@
+<div class="modal-content book-info">
+<div style="background: -webkit-gradient(linear, bottom, left 175px, from(#CCCCCC), to(#EEEEEE));
+            background: -moz-linear-gradient(bottom, #CCCCCC, #EEEEEE 175px);
+            margin:auto;
+            position:relative;
+            width:900px;
+            font-family: Tahoma, Geneva, sans-serif;
+            font-size: 14px;
+            font-style: italic;
+            line-height: 24px;
+            font-weight: bold;
+            color: #09C;
+            text-decoration: none;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            padding:10px;
+            border: 1px solid #999;
+            border: inset 1px solid #333;
+            -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+            -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);">
+
+
+
+<div class="book-info"  data-ng-init="getEntry()">
+ <div data-role="header">
+    <h1>Book Details</h1>
+ </div>
+   <table class="table table-hover">
+    <tbody>
+      <tr>
+       <td>Title : </td></br><td><a href="" data-ng-hide="editMode">{{book.title}}</a></br><input type="text" data-ng-show="editMode" data-ng-model="book.title"  /></td>
+      </tr>
+      <tr>
+        <td>Author :</td></br><td><a href="" data-ng-hide="editMode">{{book.author}}</a></br><input type="text" data-ng-show="editMode" data-ng-model="book.author"  /></td>
+      </tr>
+      <tr>
+          <td>Description :</td></br><td><a href="" data-ng-hide="editMode">{{book.description}}</a></br><input type="text" data-ng-show="editMode" data-ng-model="book.description"  /></td>
+      </tr>
+      <tr>
+          <td>Date :</td></br><td><a href="" data-ng-hide="editMode">{{book.date | date:format:longDate}}</a></br><input type="text" data-ng-show="editMode" data-ng-model="book.date" data-ng-date /></td>
+      </tr>
+      <tr>
+          <td>Image:</td></br><td><img src="{{ entry.image }}"  width="130" height="113" style="max-width:none;" alt=""></td></tr>
+    </tbody>
+   </table>
+    <span> <button type="submit" class="btn btn-primary" data-ng-hide="editMode" data-ng-click="editMode = true" >Edit</button></span>
+    <span> <button type="submit" class="btn btn-info" data-ng-show="editMode" data-ng-click="editMode = false;save()">Save</button></span>
+
+
+  <div data-role="footer">
+    <h1><a class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left" data-ng-click="cancel()" data-rel="back">Go Back</a></h1>
+  </div>
+ </div>
+</div>
+</div>

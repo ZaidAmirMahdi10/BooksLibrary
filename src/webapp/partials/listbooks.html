@@ -1,0 +1,76 @@
+
+<div class="list-books" data-ng-init="listBooks()">
+
+	<!--================SEARCH FOR BOOKS=========================-->
+	<!--<form role="search">-->
+		<div class="input-group library-search">
+
+			<input type="text" class="form-control" placeholder="Search" data-ng-model="search">
+
+                <span class="input-group-addon" data-ng-click="listBooks()"><i class="glyphicon glyphicon-search"></i></span>
+		</div>
+
+
+		<!--===================CHANGE LIMIT PER PAGE=======================-->
+        <div class="input-group library-search">
+		<label>Limit:<input type="number" data-ng-model="limit" class="form-control"
+			data-ng-change="pageChanged()"></label>
+        </div>
+	<!--</form>-->
+	<br>
+
+	<!--======================TABLE OF BOOKS (LIST)=================================-->
+	<table class="table table-hover">
+
+		<thead>
+			<tr>
+				<th>No</th>
+				<th><a href="" data-ng-click="sort('title')">Title</a></th>
+				<th><a href="" data-ng-click="sort('author')">Author</a></th>
+				<th><a href="" data-ng-click="sort('date')">Date</a></th>
+				<th><a href="">Image</a></th>
+				<th>Remove</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr
+				data-ng-repeat="entry in collection | orderBy:sortProperty:reverseSort">
+
+				<td data-ng-click="openInfo(entry)">{{$index + 1}}</td>
+				<td data-ng-click="openInfo(entry)"><a href=""
+					data-ng-click="openInfo(entry)">{{ entry.title }}</td>
+				<!--@TODO remove a and change color instead-->
+				<td data-ng-click="openInfo(entry)"><a href=""	data-ng-click="openInfo(entry)">{{ entry.author }} </td>
+				<td data-ng-click="openInfo(entry)"><a href=""	data-ng-click="openInfo(entry)">{{ entry.date | date:format:longDate}} </td>
+				<td><a class="fancybox" rel="group" href="{{ entry.image }}">
+				<img src="{{ entry.image }}" width="130" height="113"
+						style="max-width: none;" alt="" /></a></td>
+				<!--<td><form data-ng-submit="removeEntry(entry)"><input type="submit" class="btn btn-danger dropdown-toggle" aria-expanded="false" value="Remove"></form></td>-->
+				<td>
+					<button data-ng-click="removeEntry(entry)">
+						<span class="glyphicon glyphicon-floppy-remove" aria-hidden="true"></span>
+					</button>
+				</td>
+			</tr>
+		</tbody>
+
+
+		<tfoot>
+			<pagination
+                total-items="totalItems"
+                boundary-links="true"
+				num-pages="numOfPages"
+                items-per-page="limit"
+                ng-model="currentPage"
+				ng-change="pageChanged()"
+                class="pagination-sm"
+				previous-text="&lsaquo;"
+                next-text="&rsaquo;"
+                first-text="&laquo;"
+				last-text="&raquo;">
+            </pagination>
+
+		</tfoot>
+	</table>
+</div>

@@ -1,0 +1,47 @@
+<div class="add-book" xmlns="http://www.w3.org/1999/html">
+	<div class="add-form">
+
+		<form class="headech">
+
+			<div data-role="header">
+				<h1>New :</h1>
+			</div>
+			<!--   ID:<input type="number" ng-model="ctrl.newData.id" required> -->
+			<label> Title: <input type="text"
+				data-ng-model="newData.title" required>
+
+			</label><br>
+            <label> Author: <input type="text"
+				data-ng-model="newData.author" required>
+
+			</label><br>
+
+            <label class="date-picker">
+                Date: <input type="text" class="form-control" data-ng-model="newData.date" data-ng-date/>
+
+            </label><br>
+
+
+			<label> Description:
+                <input type="text"
+				data-ng-model="newData.description" required>
+
+			</label><br>
+            <!--onchange="angular.element(this).scope().uploadFile(this.files)"-->
+            Image:
+            <input type="text" name="Image" data-ng-model="newData.image"><br>
+            <input type="submit"
+				class="btn btn-success" value="Add" data-ng-click="add()"
+				data-rel="back">
+
+			<div data-role="footer">
+				<h1>
+					<a
+						class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-btn-b ui-icon-back ui-btn-icon-left"
+						data-ng-click="cancel()" data-rel="back">Go Back</a>
+				</h1>
+			</div>
+		</form>
+	</div>
+</div>
+</div>

@@ -1,0 +1,41 @@
+server:
+  type: simple
+  rootPath: '/api/*'
+  applicationContextPath: /
+  connector:
+    type: http
+    port: 8080
+
+template: Hello, %s!
+defaultName: back-end
+
+
+database:
+
+  # the name of your JDBC driver
+  driverClass: com.mysql.jdbc.Driver 
+  
+  
+# any properties specific to JDBC driver:
+  properties:
+   # charSet: UTF-8
+    hibernate.dialect: org.hibernate.dialect.MySQL5InnoDBDialect #org.hibernate.dialect.MySQLDialect
+    hibernate.hbm2ddl.auto: update #create	
+   # hibernate.hbm2ddl.import_files: import.sql
+    
+
+ # the JDBC URL
+  url: jdbc:mysql://localhost:3306/books 
+ # url: jdbc:h2:mem:books
+
+  # the username
+  user: root
+
+  # the password
+  password: root
+
+
+   
+    
+  
+
